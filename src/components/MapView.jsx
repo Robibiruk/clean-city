@@ -33,6 +33,7 @@ const handleReportSubmit = async (data) => {
 
     const result = await res.json();
     console.log("Saved:", result);
+    if (!result.ok) console.error("Server error:", result);
 
     setShowForm(false);
     setSelectedPos(null);
