@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Clean City
 
 ## Screenshot
@@ -64,3 +65,4 @@ Returns all existing reports.
 
 ## License
 MIT
+======
