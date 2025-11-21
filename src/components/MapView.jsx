@@ -17,7 +17,7 @@ export default function MapView() {
   const [selectedPos, setSelectedPos] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
-const API = "https://YOUR_RENDER_URL.onrender.com";
+const API = "https://server-hrlu.onrender.com/";
 
 const handleReportSubmit = async (data) => {
   const formData = new FormData();
