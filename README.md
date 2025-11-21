@@ -1,18 +1,66 @@
-# React + Vite
+# Clean City
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Screenshot
+![Screenshot](./src/assets/Screenshot.png)
 
-Currently, two official plugins are available:
+## Overview
+Clean City is a simple reporting app that lets users click a location on the map, attach an image, and submit an environmental report.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend is deployed on Vercel: https://clean-city-l9tfceiqg-robels-projects-a70f5979.vercel.app/
+Backend is deployed on Render.
 
-## React Compiler
+## Features
+- Interactive map using Leaflet.
+- Users can select a spot and report an issue.
+- Image upload using Multer.
+- MongoDB database for saving reports.
+- Fully deployed frontend and backend.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Tech Stack
+- **Frontend:** React, Vite, Leaflet, TailwindCSS
+- **Backend:** Node.js, Express, Multer
+- **Database:** MongoDB
+- **Deployment:** Vercel (frontend), Render (backend)
 
-Note: This will impact Vite dev & build performances.
+## Project Structure
+```
+client/
+  src/
+    components/
+    pages/
+    App.jsx
+    main.jsx
+server/
+  src/
+    routes/
+    models/
+    controllers/
+    server.js
+```
 
-## Expanding the ESLint configuration
+## How It Works
+1. User clicks a location on the map.
+2. A form opens for title, description, and image.
+3. Frontend sends a POST request with FormData.
+4. Backend saves the info, uploads the file, and returns the created report.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API Endpoints
+### POST /api/reports
+Creates a new report.
+
+### GET /api/reports
+Returns all existing reports.
+
+## Deployment
+- Push frontend to Vercel.
+- Backend to Render with build command and start command.
+- Ensure CORS is correctly set.
+
+## Future Improvements
+- Add authentication.
+- Display reports on the map.
+- Add filters for trash, pollution, etc.
+- Improve UI with animations and better layout.
+
+## License
+MIT
