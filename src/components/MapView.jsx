@@ -17,23 +17,19 @@ export default function MapView() {
   const [selectedPos, setSelectedPos] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
-const API = "https://server-hrlu.onrender.com/";
-
 const handleReportSubmit = async (data) => {
-  const formData = new FormData();
-  formData.append("title", data.title);
-  formData.append("desc", data.desc);
-  formData.append("lat", data.pos.lat);
-  formData.append("lng", data.pos.lng);
-  formData.append("image", data.image);
-
   try {
-    const res = await fetch(`${API}/api/reports`, {
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("desc", data.desc);
+    formData.append("lat", data.pos.lat);
+    formData.append("lng", data.pos.lng);
+    formData.append("image", data.image);
+
+    const res = await fetch("https://server-hrlu.onrender.com/api/reports", {
       method: "POST",
       body: formData,
     });
-
-    if (!res.ok) throw new Error("Server error");
 
     const result = await res.json();
     console.log("Saved:", result);
@@ -41,8 +37,7 @@ const handleReportSubmit = async (data) => {
     setShowForm(false);
     setSelectedPos(null);
   } catch (err) {
-    console.error("Submit error:", err);
-    throw err;
+    console.error("SUBMIT ERROR:", err);
   }
 };
 
