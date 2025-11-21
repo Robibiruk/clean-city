@@ -17,6 +17,8 @@ export default function MapView() {
   const [selectedPos, setSelectedPos] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
+const API = "https://YOUR_RENDER_URL.onrender.com";
+
 const handleReportSubmit = async (data) => {
   const formData = new FormData();
   formData.append("title", data.title);
@@ -26,14 +28,12 @@ const handleReportSubmit = async (data) => {
   formData.append("image", data.image);
 
   try {
-    const res = await fetch("http://localhost:5000/api/reports", {
+    const res = await fetch(`${API}/api/reports`, {
       method: "POST",
       body: formData,
     });
 
-    if (!res.ok) {
-      throw new Error("Server error");
-    }
+    if (!res.ok) throw new Error("Server error");
 
     const result = await res.json();
     console.log("Saved:", result);
@@ -42,7 +42,7 @@ const handleReportSubmit = async (data) => {
     setSelectedPos(null);
   } catch (err) {
     console.error("Submit error:", err);
-    throw err; // passes error to ReportForm so it shows the red message
+    throw err;
   }
 };
 
