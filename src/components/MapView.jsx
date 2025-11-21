@@ -33,7 +33,8 @@ const handleReportSubmit = async (data) => {
 
     const result = await res.json();
     console.log("Saved:", result);
-    if (!result.ok) console.error("Server error:", result);
+if (!result.ok) console.error("Server error:", result);
+
 
     setShowForm(false);
     setSelectedPos(null);
@@ -45,7 +46,7 @@ const handleReportSubmit = async (data) => {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">CleanCity – Report an Issue</h2>
-      <p className="mb-4 text-gray-700">
+      <p className="mb-4 text-white-700">
         Click anywhere on the map to report trash, pollution, hazards, or anything that affects the environment.
       </p>
 
@@ -75,7 +76,7 @@ const handleReportSubmit = async (data) => {
 
       {/* Report Form */}
       {showForm && selectedPos && (
-        <div className="bg-white shadow-md p-4 rounded-lg border">
+        <div className="bg-gray shadow-md p-4 rounded-lg border">
           <h3 className="text-lg font-semibold mb-2">
             Report this location
           </h3>
